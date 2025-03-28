@@ -7,9 +7,9 @@ export class Norm extends LitElement {
          domain: {type: Object},
          norm: { type: Object },
          value: { type: Number },
-         colorLow: { type: String },
+         colorNormInf: { type: String },
          colorNormal: { type: String },
-         colorHigh: { type: String },
+         colorNormSup: { type: String },
       }
    }
 
@@ -19,9 +19,9 @@ export class Norm extends LitElement {
       this.domain = { inf: 0., sup: 100. }
       this.norm = { inf: 40., sup: 60. }
       this.value = 50.
-      this.colorLow = '#51AEE9'
+      this.colorNormInf = '#51AEE9'
       this.colorNormal = '#9FCE65'
-      this.colorHigh = '#F6C242'
+      this.colorNormSup = '#F6C242'
    }
    
    // Percentage value for norm.inf
@@ -40,9 +40,9 @@ export class Norm extends LitElement {
       console.log('domain', this.domain)
       console.log('norm', this.norm)
       return html`
-         <div style="height: 100%; background: linear-gradient(to right, ${this.colorLow} 0%, ${this.colorNormal} ${this.normInfPercentage}%, ${this.colorNormal} ${this.normSupPercentage}%, ${this.colorHigh} 100%);">
-            <span style="position: relative; left: ${this.normInfPercentage}%;">${this.normInfPercentage}</span>
-            <span style="position: relative; left: ${this.normSupPercentage}%;">${this.normSupPercentage}</span>
+         <div style="height: 50%; position: relative; top: 25%; background: linear-gradient(to right, ${this.colorNormInf} 0%, ${this.colorNormal} ${this.normInfPercentage}%, ${this.colorNormal} ${this.normSupPercentage}%, ${this.colorNormSup} 100%);">
+            <span style="position: relative; top: -50%; left: ${this.normInfPercentage}%; color: ${this.colorNormInf};">${this.normInfPercentage}</span>
+            <span style="position: relative; top: -50%; left: ${this.normSupPercentage}%; color: ${this.colorNormSup};">${this.normSupPercentage}</span>
          </div>
       `
    }
@@ -55,6 +55,7 @@ export class Norm extends LitElement {
             width: 100%; /* <jcb-norm> takes full parent width */
             height: 100%; /* <jcb-norm> takes full parent height */
             font-family: var(--jcb-norm-font-family, Arial);
+            font-size: var(--jcb-norm-font-size, 14px);
          }
       `
    }
