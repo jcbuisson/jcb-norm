@@ -36,7 +36,6 @@ export class Norm extends LitElement {
    }
 
    // values to display, with 3-digit precision and trailing zeros removed
-
    get normInf() {
       return this.norm.inf.toPrecision(3).replace(/(\.\d*?[1-9])0+$/, '$1'); 
    }
@@ -72,7 +71,7 @@ export class Norm extends LitElement {
             <!-- inf norm text -->
             <span style="position: relative; top: -50%; left: ${this.normInfPercentage}%; color: ${this.infColor};">${this.normInf}</span>
 
-            <!-- typical value text -->
+            <!-- optional typical value text -->
             ${this.norm.typical
                ? html`<span style="position: relative; top: -50%; left: ${this.normTypicalPercentage}%; color: ${this.normalColor};">${this.normTypical}</span>`
                : ''}
@@ -84,7 +83,16 @@ export class Norm extends LitElement {
             <div class="triangle" style="position: relative; left: ${this.valuePercentage}%; border-bottom-color: ${this.valueColor};">
                <span style="position: relative; top: 25px; left: -10px; color: ${this.valueColor};">${this.val}</span>
             </div>
-         </div>
+
+            <!-- optional text in inf part of norm -->
+            ${this.infText
+               ? html`<div style="position: relative; top: -100%; color: white; width: 100%; text-align: left;">${this.infText}</div>`
+               : ''}
+            <!-- optional text in sup part of norm -->
+            ${this.supText
+               ? html`<div style="position: relative; top: -100%; color: white; width: 100%; text-align: right;">${this.supText}</div>`
+               : ''}
+            </div>
       `
    }
 
