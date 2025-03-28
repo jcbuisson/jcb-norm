@@ -40,7 +40,7 @@ export class Norm extends LitElement {
       console.log('domain', this.domain)
       console.log('norm', this.norm)
       return html`
-         <div style="background: linear-gradient(to right, ${this.colorLow} 0%, ${this.colorNormal} ${this.normInfPercentage}%, ${this.colorNormal} ${this.normSupPercentage}%, ${this.colorHigh} 100%);">
+         <div style="height: 100%; background: linear-gradient(to right, ${this.colorLow} 0%, ${this.colorNormal} ${this.normInfPercentage}%, ${this.colorNormal} ${this.normSupPercentage}%, ${this.colorHigh} 100%);">
             <span style="position: relative; left: ${this.normInfPercentage}%;">${this.normInfPercentage}</span>
             <span style="position: relative; left: ${this.normSupPercentage}%;">${this.normSupPercentage}</span>
          </div>
