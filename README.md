@@ -4,11 +4,13 @@
 ## Installation
 
 ```
-npm i jcb-norm
+mkdir test; cd test
+npm init es6
+npm install jcb-norm
 ````
 
 ## Usage
-
+index.html
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -63,6 +65,7 @@ import 'jcb-norm'
 </style>
 ```
 
+## Test
 ```
 npx vite
 ```
