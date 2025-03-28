@@ -13,6 +13,10 @@
     "dev": "vite",
     "build": "vite build"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcbuisson/jcb-norm.git"
+  },
   "dependencies": {
     "lit": "^2.6.1"
   },
